@@ -2,6 +2,9 @@ if (sheetVersion < 13001013) {
     throw "This script was made for a newer version of the sheet (v13.1.13). Please use the latest version and try again.\nI can get the latest version at www.flapkan.com.";
 }
 
+
+var iFileName = "AnimatedArmor.js";
+
 SourceList["DanDw"] = {
     name: "D\u0026D Wiki",
     abbreviation: "D\u0026Dwiki",
@@ -46,7 +49,7 @@ var ANIMATED_ARMOR_COMMON_TRAITS = {
 RaceList["animated-armor, heavy"] = {
     name: ANIMATED_ARMOR_COMMON_TRAITS.name,
     regExpSearch: ANIMATED_ARMOR_COMMON_TRAITS.regExpSearch,
-    source.ANIMATED_ARMOR_COMMON_TRAITS.source;
+    source: ANIMATED_ARMOR_COMMON_TRAITS.source;
     size: ANIMATED_ARMOR_COMMON_TRAITS.size,
     languageProfs: ANIMATED_ARMOR_COMMON_TRAITS.languageProfs,
     vision: ANIMATED_ARMOR_COMMON_TRAITS.vision,
@@ -77,9 +80,9 @@ RaceList["animated-armor, heavy"] = {
                 if (v.baseWeaponName == "unarmed strike") {
                     output.die = 1d6;
                 }
-            }, ''
+            }, ""
         ]
-    }
+    },
     trait: "Heavy (+1 Constitution, +2 Strength)\n" +
     "Innate Heavy Armor: The armor your soul inhabits is chain mail, making your Armor Class 16\n" +
     "Heavy Hitter: Your fists are as heavy as your steps. When you hit with an unarmed strike, you can deal 1d6 + your Strength modifier bludgeoning damage, instead of the normal damage for an unarmed strike."
@@ -88,7 +91,7 @@ RaceList["animated-armor, heavy"] = {
 RaceList["animated-armor, medium"] = {
     name: ANIMATED_ARMOR_COMMON_TRAITS.name,
     regExpSearch: ANIMATED_ARMOR_COMMON_TRAITS.regExpSearch,
-    source.ANIMATED_ARMOR_COMMON_TRAITS.source;
+    source: ANIMATED_ARMOR_COMMON_TRAITS.source;
     size: ANIMATED_ARMOR_COMMON_TRAITS.size,
     languageProfs: ANIMATED_ARMOR_COMMON_TRAITS.languageProfs,
     vision: ANIMATED_ARMOR_COMMON_TRAITS.vision,
@@ -120,7 +123,7 @@ RaceList["animated-armor, medium"] = {
 RaceList["animated-armor, light"] = {
     name: ANIMATED_ARMOR_COMMON_TRAITS.name,
     regExpSearch: ANIMATED_ARMOR_COMMON_TRAITS.regExpSearch,
-    source.ANIMATED_ARMOR_COMMON_TRAITS.source;
+    source: ANIMATED_ARMOR_COMMON_TRAITS.source;
     size: ANIMATED_ARMOR_COMMON_TRAITS.size,
     languageProfs: ANIMATED_ARMOR_COMMON_TRAITS.languageProfs,
     vision: ANIMATED_ARMOR_COMMON_TRAITS.vision,
