@@ -2,7 +2,6 @@ if (sheetVersion < 13001013) {
     throw "This script was made for a newer version of the sheet (v13.1.13). Please use the latest version and try again.\nI can get the latest version at www.flapkan.com.";
 }
 
-
 var iFileName = "AnimatedArmor.js";
 
 SourceList["DanDw"] = {
@@ -14,7 +13,6 @@ SourceList["DanDw"] = {
 
 var ANIMATED_ARMOR_COMMON_TRAITS = {
     regExpSearch: /^(?=.*(animated|armor))/i,
-    name: "Animated Armor",
     source: [["DanDw", 0]],
     size: 3,
     languageProfs: ["Common", 1],
@@ -46,10 +44,10 @@ var ANIMATED_ARMOR_COMMON_TRAITS = {
     },
 }
 
-RaceList["animated-armor, heavy"] = {
-    name: ANIMATED_ARMOR_COMMON_TRAITS.name,
+RaceList["animated armor heavy"] = {
+    name: "Animated Armor, Heavy",
     regExpSearch: ANIMATED_ARMOR_COMMON_TRAITS.regExpSearch,
-    source: ANIMATED_ARMOR_COMMON_TRAITS.source;
+    source: ANIMATED_ARMOR_COMMON_TRAITS.source,
     size: ANIMATED_ARMOR_COMMON_TRAITS.size,
     languageProfs: ANIMATED_ARMOR_COMMON_TRAITS.languageProfs,
     vision: ANIMATED_ARMOR_COMMON_TRAITS.vision,
@@ -58,16 +56,19 @@ RaceList["animated-armor, heavy"] = {
     heightMetric: ANIMATED_ARMOR_COMMON_TRAITS.heightMetric,
     weightMetric: ANIMATED_ARMOR_COMMON_TRAITS.weightMetric,
     toNotesPage: ANIMATED_ARMOR_COMMON_TRAITS.toNotesPage,
-    savetxt: ANIMATED_ARMOR_COMMON_TRAITS.savetxt;
-    scores: [[2, 0, 1, 0, 0, 0]],
+    savetxt: ANIMATED_ARMOR_COMMON_TRAITS.savetxt,
+    scores: [2, 0, 1, 0, 0, 0],
     armorAdd: "Chain Mail",
     armorOptions: [{
+            regExpSearch: /^(?=.*chain)(?=.*mail).*$/i,
             name: "Chain Mail",
+            source: ANIMATED_ARMOR_COMMON_TRAITS.source,
             type: "heavy",
             ac: 16,
-            weight: 55
+            weight: 55,
         }
     ],
+    addarmor: "Chain Mail",
     speed: {
         walk: {
             spd: 25,
@@ -78,7 +79,7 @@ RaceList["animated-armor, heavy"] = {
         atkCalc: [
             function (fields, v, output) {
                 if (v.baseWeaponName == "unarmed strike") {
-                    output.die = 1d6;
+                    output.die = "1d6";
                 }
             }, ""
         ]
@@ -88,10 +89,10 @@ RaceList["animated-armor, heavy"] = {
     "Heavy Hitter: Your fists are as heavy as your steps. When you hit with an unarmed strike, you can deal 1d6 + your Strength modifier bludgeoning damage, instead of the normal damage for an unarmed strike."
 };
 
-RaceList["animated-armor, medium"] = {
-    name: ANIMATED_ARMOR_COMMON_TRAITS.name,
+RaceList["animated armor medium"] = {
+    name: "Animated Armor, Medium",
     regExpSearch: ANIMATED_ARMOR_COMMON_TRAITS.regExpSearch,
-    source: ANIMATED_ARMOR_COMMON_TRAITS.source;
+    source: ANIMATED_ARMOR_COMMON_TRAITS.source,
     size: ANIMATED_ARMOR_COMMON_TRAITS.size,
     languageProfs: ANIMATED_ARMOR_COMMON_TRAITS.languageProfs,
     vision: ANIMATED_ARMOR_COMMON_TRAITS.vision,
@@ -100,16 +101,20 @@ RaceList["animated-armor, medium"] = {
     heightMetric: ANIMATED_ARMOR_COMMON_TRAITS.heightMetric,
     weightMetric: ANIMATED_ARMOR_COMMON_TRAITS.weightMetric,
     toNotesPage: ANIMATED_ARMOR_COMMON_TRAITS.toNotesPage,
-    savetxt: ANIMATED_ARMOR_COMMON_TRAITS.savetxt;
-    scores: [[1, 1, 1, 0, 0, 0]],
-    armorAdd: "Scale Mail",
+    savetxt: ANIMATED_ARMOR_COMMON_TRAITS.savetxt,
+    scores: [1, 1, 1, 0, 0, 0],
     armorOptions: [{
+            regExpSearch: /^(?=.*scale)(?=.*mail).*$/i,
             name: "Scale Mail",
-            type: "Medium",
+            source: ANIMATED_ARMOR_COMMON_TRAITS.source,
+            type: "medium",
             ac: 14,
-            weight: 45
+            weight: 55,
+            select: "scale mail",
         }
     ],
+    armorAdd: "scale mail",
+    addarmor: "scale mail",
     speed: {
         walk: {
             spd: 30,
@@ -120,10 +125,10 @@ RaceList["animated-armor, medium"] = {
     "Innate Light The armor your soul inhabits is chain mail, making your Armor Class 11 + your Dexterity modifier, to a maximum Dexterity bonus of 2"
 };
 
-RaceList["animated-armor, light"] = {
-    name: ANIMATED_ARMOR_COMMON_TRAITS.name,
+RaceList["animated armor light"] = {
+    name: "Animated Armor, Light",
     regExpSearch: ANIMATED_ARMOR_COMMON_TRAITS.regExpSearch,
-    source: ANIMATED_ARMOR_COMMON_TRAITS.source;
+    source: ANIMATED_ARMOR_COMMON_TRAITS.source,
     size: ANIMATED_ARMOR_COMMON_TRAITS.size,
     languageProfs: ANIMATED_ARMOR_COMMON_TRAITS.languageProfs,
     vision: ANIMATED_ARMOR_COMMON_TRAITS.vision,
@@ -132,16 +137,11 @@ RaceList["animated-armor, light"] = {
     heightMetric: ANIMATED_ARMOR_COMMON_TRAITS.heightMetric,
     weightMetric: ANIMATED_ARMOR_COMMON_TRAITS.weightMetric,
     toNotesPage: ANIMATED_ARMOR_COMMON_TRAITS.toNotesPage,
-    savetxt: ANIMATED_ARMOR_COMMON_TRAITS.savetxt;
-    scores: [[0, 2, 1, 0, 0, 0]],
-    armorAdd: "Leather Armor",
-    armorOptions: [{
-            name: "Leather Armor",
-            type: "light",
-            ac: 11,
-            weight: 10
-        }
-    ],
+    savetxt: ANIMATED_ARMOR_COMMON_TRAITS.savetxt,
+    scores: [0, 2, 1, 0, 0, 0],
+    armorAdd: {
+        select: "Leather Armor",
+    },
     speed: {
         walk: {
             spd: 35,
